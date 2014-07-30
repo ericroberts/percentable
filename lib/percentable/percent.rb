@@ -30,10 +30,8 @@ module Percentable
           [to_f * other, other]
         when :-
           [other, to_f * other]
-        when :/
-          [other, to_f]
         else
-          [to_f, other]
+          [other, to_f]
         end
       else
         fail TypeError, "#{self.class} can't be coerced into #{other.class}"
