@@ -1,6 +1,5 @@
 require 'spec_helper'
-require 'percentable/percent'
-require 'percentable/percentize'
+require 'percentable'
 
 class TestClass
   def returns_a_percent

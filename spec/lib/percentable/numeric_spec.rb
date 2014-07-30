@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'percentable/numeric'
+require 'percentable'
 require 'bigdecimal'
 
 describe Numeric do
