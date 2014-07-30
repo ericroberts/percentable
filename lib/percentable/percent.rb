@@ -60,3 +60,5 @@ module Percentable
     end
   end
 end
+
+Percent = Percentable::Percent
