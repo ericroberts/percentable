@@ -60,6 +60,15 @@ module Percentable
         end
       end
     end
+
+    def self.from_numeric(numeric)
+      case numeric
+      when Numeric
+        Percent.new(numeric*100)
+      else
+        fail TypeError, 'must inherit from Numeric'
+      end
+    end
   end
 end
 

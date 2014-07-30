@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'percentable/percent'
+require 'percentable'
 
 describe Percentable::Percent do
   subject { Percentable::Percent.new(value) }
@@ -261,6 +261,26 @@ describe Percentable::Percent do
         it 'should say the percent is larger' do
           expect(percent > integer).to be true
         end
+      end
+    end
+  end
+
+  describe '.from_numeric' do
+    let(:n) { 0.5 }
+
+    it 'should multiply the input by 100 and return a percent for that value' do
+      expect(subject.class.from_numeric(n)).to eq Percent.new(50)
+    end
+
+    it 'should be considered equal to the numeric it was passed' do
+      expect(subject.class.from_numeric(n)).to eq n
+    end
+
+    context 'when passed a string' do
+      let(:n) { 'string' }
+
+      it 'should raise an argument error' do
+        expect { subject.class.from_numeric(n) }.to raise_error TypeError
       end
     end
   end
