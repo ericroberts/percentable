@@ -128,6 +128,29 @@ describe Percentable::Percent do
     end
   end
 
+  describe '#-' do
+    context 'subtracting percents' do
+      let(:percent1) { subject.class.new(50) }
+      let(:percent2) { subject.class.new(10) }
+
+      it 'should return the result after subtraction' do
+        expect(percent1 - percent2).to eq subject.class.new(40)
+      end
+    end
+
+    context 'subtracting other numerics' do
+      let(:value) { 20 }
+
+      [1, 1.0, BigDecimal.new(1.0, 10)].each do |numeric|
+        context numeric.class.name do
+          it "should return the result after subtracting the #{numeric.class.name} from the percent" do
+            expect(subject - numeric).to eq subject.class.new(19)
+          end
+        end
+      end
+    end
+  end
+
   describe '#*' do
     context 'multiplying percents' do
       let(:percent1) { subject.class.new(9) }
@@ -144,6 +167,29 @@ describe Percentable::Percent do
 
       it 'should return the result of multipling the percent by the number' do
         expect(percent * numeric).to eq subject.class.new(40)
+      end
+    end
+  end
+
+  describe '#/' do
+    context 'dividing percents' do
+      let(:percent1) { subject.class.new(50) }
+      let(:percent2) { subject.class.new(10) }
+
+      it 'should return the result after division' do
+        expect(percent1 / percent2).to eq subject.class.new(5)
+      end
+    end
+
+    context 'dividing other numerics' do
+      let(:value) { 20 }
+
+      [5, 5.0, BigDecimal.new(5.0, 10)].each do |numeric|
+        context numeric.class.name do
+          it "should return the result after subtracting the #{numeric.class.name} from the percent" do
+            expect(subject / numeric).to eq subject.class.new(4)
+          end
+        end
       end
     end
   end

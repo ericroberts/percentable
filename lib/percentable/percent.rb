@@ -58,6 +58,24 @@ module Percentable
         self.class.new(other * value)
       end
     end
+
+    def - other
+      case other
+      when Percent
+        self.class.new(value - other.value)
+      when Numeric
+        self.class.new(value - other)
+      end
+    end
+
+    def / other
+      case other
+      when Percent
+        self.class.new(value / other.value)
+      when Numeric
+        self.class.new(value / other)
+      end
+    end
   end
 end
 
