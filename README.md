@@ -24,9 +24,9 @@ Well, you can use this a couple of ways.
 
 ``` ruby
 percent = Percent.new(50)
-percent.value   #=> 50
-percent.to_s    #=> '50%'
-percent.to_f    #=> 0.5
+percent.value             #=> 50
+percent.to_s              #=> '50%'
+percent.to_f              #=> 0.5
 
 class User < ActiveRecord::Base
   extend Percentable::Percentize
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 end
 
 user = User.new(health: 100)
-user.health     #=> Percent.new(100)
+user.health               #=> Percent.new(100)
 ```
 
 ### OK, but why would I want this?
