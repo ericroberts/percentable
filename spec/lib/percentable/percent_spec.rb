@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'bigdecimal'
 require 'percentable'
 
 describe Percentable::Percent do
@@ -82,20 +83,31 @@ describe Percentable::Percent do
   end
 
   describe '#coerce' do
-    context 'when other is numeric' do
-      let(:other) { 10.0 }
-      let(:value) { 10.0 }
-
-      it 'should return a tuple with the float value and type of other' do
-        expect(subject.coerce(other)).to eq [0.1, 10]
-      end
-    end
-
     context 'when other is non numeric' do
       let(:other) { 'string' }
 
       it 'should raise a TypeError' do
         expect { subject.coerce(other) }.to raise_error TypeError
+      end
+    end
+
+    context 'math' do
+      let(:value) { 50 }
+
+      it 'should add the value of percent*number' do
+        expect(10 + subject).to eq 15
+      end
+
+      it 'should subtract the value of percent*number' do
+        expect(10 - subject).to eq 5
+      end
+
+      it 'should multiply by the float value of the percent' do
+        expect(10 * subject).to eq 5
+      end
+
+      it 'should divide by the float value of the percent' do
+        expect(10 / subject).to eq 20
       end
     end
   end

@@ -56,6 +56,16 @@ percent * 10    #=> Percent.new(500)
 percent / 10    #=> Percent.new(5)
 ```
 
+And with the number on the other side...
+
+``` ruby
+percent = Percent.new(50)
+10 + percent    #=> 15
+10 - percent    #=> 5
+10 * percent    #=> 5
+10 / percent    #=> 20
+```
+
 Repeat steps above for Floats, BigDecimals, etc. It should all work.
 
 ### Can I turn other Numerics into Percents?
