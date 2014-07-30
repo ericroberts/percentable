@@ -24,9 +24,9 @@ Well, you can use this a couple of ways.
 
 ``` ruby
 percent = Percent.new(50)
-percent.value             #=> 50
-percent.to_s              #=> '50%'
-percent.to_f              #=> 0.5
+percent.value   #=> 50
+percent.to_s    #=> '50%'
+percent.to_f    #=> 0.5
 
 class User < ActiveRecord::Base
   extend Percentable::Percentize
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 end
 
 user = User.new(health: 100)
-user.health               #=> Percent.new(100)
+user.health     #=> Percent.new(100)
 ```
 
 ### OK, but why would I want this?
@@ -48,20 +48,20 @@ It can handle the normal things you would expect from a `Numeric` object. Additi
 
 ``` ruby
 percent = Percent.new(10)
-percent + percent         #=> Percent.new(20)
-percent - percent         #=> Percent.new(0)
-percent * percent         #=> Percent.new(100)
-percent / percent         #=> Percent.new(1)
+percent + percent   #=> Percent.new(20)
+percent - percent   #=> Percent.new(0)
+percent * percent   #=> Percent.new(100)
+percent / percent   #=> Percent.new(1)
 ```
 
 You probably want to know how it works with other Numerics though.
 
 ``` ruby
 percent = Percent.new(50)
-percent + 10              #=> Percent.new(60)
-percent - 10              #=> Percent.new(40)
-percent * 10              #=> Percent.new(500)
-percent / 10              #=> Percent.new(5)
+percent + 10    #=> Percent.new(60)
+percent - 10    #=> Percent.new(40)
+percent * 10    #=> Percent.new(500)
+percent / 10    #=> Percent.new(5)
 ```
 
 ### Is that it?
