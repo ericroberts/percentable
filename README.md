@@ -68,7 +68,7 @@ percent = Percent.new(50)
 
 Repeat steps above for Floats, BigDecimals, etc. It should all work.
 
-### Can I turn other Numerics into Percents?
+### Can I turn Numerics into Percents?
 
 Yes, yes you can.
 
@@ -122,7 +122,7 @@ percentize_object.returns_a_percent     #=> Percent.new(10)
 
 ### What else can percentize do?
 
-You can do percentize multiple methods at a time:
+You can percentize multiple methods at a time:
 
 ``` ruby
 class PercentizedClass < OriginalClass
@@ -132,7 +132,7 @@ class PercentizedClass < OriginalClass
 end
 ```
 
-You can define defaults for when the percentized method returns nil:
+You can also define defaults for when the percentized method returns nil:
 
 ``` ruby
 class PercentizedClass < OriginalClass
