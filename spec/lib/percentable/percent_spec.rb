@@ -114,7 +114,7 @@ describe Percentable::Percent do
       let(:percent) { subject.class.new(50) }
 
       it 'should return the sum of percent and integer' do
-        expect(percent + integer).to eq subject.class.new(150)
+        expect(percent + integer).to eq subject.class.new(51)
       end
     end
 
@@ -123,7 +123,7 @@ describe Percentable::Percent do
       let(:percent) { subject.class.new(25) }
 
       it 'should return the sum of percent and float' do
-        expect(percent + float).to eq subject.class.new(125)
+        expect(percent + float).to eq subject.class.new(26)
       end
     end
   end

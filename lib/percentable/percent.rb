@@ -46,7 +46,7 @@ module Percentable
       when Percent
         self.class.new(other.value + value)
       when Numeric
-        self.class.new(other*100 + value)
+        self.class.new(other + value)
       end
     end
 
