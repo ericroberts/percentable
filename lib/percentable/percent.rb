@@ -41,39 +41,14 @@ module Percentable
       to_f <=> other.to_f
     end
 
-    def + other
-      case other
-      when Percent
-        self.class.new(other.value + value)
-      when Numeric
-        self.class.new(other + value)
-      end
-    end
-
-    def * other
-      case other
-      when Percent
-        self.class.new(other.value * value)
-      when Numeric
-        self.class.new(other * value)
-      end
-    end
-
-    def - other
-      case other
-      when Percent
-        self.class.new(value - other.value)
-      when Numeric
-        self.class.new(value - other)
-      end
-    end
-
-    def / other
-      case other
-      when Percent
-        self.class.new(value / other.value)
-      when Numeric
-        self.class.new(value / other)
+    [:+, :-, :*, :/].each do |operator|
+      define_method operator do |other|
+        case other
+        when Percent
+          self.class.new(value.send(operator, other.value))
+        when Numeric
+          self.class.new(value.send(operator, other))
+        end
       end
     end
   end
