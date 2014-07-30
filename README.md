@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/ericroberts/percentable.png?branch=master)](https://travis-ci.org/ericroberts/percentable)
+[![Code Climate](https://codeclimate.com/github/ericroberts/percentable.png)](https://codeclimate.com/github/ericroberts/percentable)
+
 # Percentable
 
 Small gem to make working with percents easier.
