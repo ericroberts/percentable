@@ -69,6 +69,18 @@ describe Percentable::Percent do
     end
   end
 
+  describe '#to_i' do
+    [0.1, 0.5, 1, 1.8, 2, 2.2].each do |value|
+      context "value of #{value}" do
+        let(:value) { value }
+
+        it "should return #{value.floor} for #{value}" do
+          expect(subject.to_i).to eq value.floor
+        end
+      end
+    end
+  end
+
   describe '#coerce' do
     context 'when other is numeric' do
       let(:other) { 10.0 }
