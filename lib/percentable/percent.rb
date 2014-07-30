@@ -21,9 +21,20 @@ module Percentable
     end
 
     def coerce other
+      method = caller[0].match("`(.+)'")[1].to_sym
+
       case other
       when Numeric
-        [to_f, other]
+        case method
+        when :+
+          [to_f * other, other]
+        when :-
+          [other, to_f * other]
+        when :/
+          [other, to_f]
+        else
+          [to_f, other]
+        end
       else
         fail TypeError, "#{self.class} can't be coerced into #{other.class}"
       end
