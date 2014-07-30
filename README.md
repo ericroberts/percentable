@@ -110,6 +110,10 @@ I don't know, all I can tell you is that I found it useful. Instead of writing m
 
 Hey, I only wrote this in a night. Happy to accept contributions from others!
 
+### Your math is totally wrong and you are an idiot.
+
+That's not a question. I've had a fair bit of discussion with the fine folks at [Boltmade](http://www.boltmade.com) about how it should behave, and the examples you see above are what we settled on. If you would like to propose a change, the best way would be to edit the README to show examples for how you would like it to act. You can also submit a pull request that changes the code, but if you submit the README first we can have a discussion about whether or not it makes sense. I'm not totally sold on the current implementation and would be happy to discuss changes.
+
 ## Contributing
 
 1. Fork it ( https://github.com/ericroberts/percentable/fork )
