@@ -154,11 +154,11 @@ describe Percentable::Percent do
 
   describe '#*' do
     context 'multiplying percents' do
-      let(:percent1) { subject.class.new(9) }
-      let(:percent2) { subject.class.new(9) }
+      let(:percent1) { subject.class.new(10) }
+      let(:percent2) { subject.class.new(10) }
 
       it 'should return the result of multiplying the percents' do
-        expect(percent1 * percent2).to eq subject.class.new(81)
+        expect(percent1 * percent2).to eq subject.class.new(1)
       end
     end
 

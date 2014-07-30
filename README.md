@@ -40,7 +40,7 @@ That's the basics of the object itself. You probably want to know about how it w
 percent = Percent.new(10)
 percent + percent   #=> Percent.new(20)
 percent - percent   #=> Percent.new(0)
-percent * percent   #=> Percent.new(100)
+percent * percent   #=> Percent.new(1)
 percent / percent   #=> Percent.new(1)
 ```
 
