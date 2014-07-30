@@ -76,6 +76,14 @@ Yes, yes you can.
 10.to_percent   #=> Percent.new(10)
 ```
 
+### What if I want to turn my Numeric into what it would actually be as a percent?
+
+Sometimes 10.to_percent is not what you want. That returns you `Percent.new(10)` which is equal only to 0.1. If you have 0.1 and want to turn that into a percent representation, use the code below:
+
+``` ruby
+Percent.from_numeric(1)   #=> Percent.new(100)
+```
+
 ### How do I use this with Rails?
 
 Well let's say you have a User model, and on that user model you have a health attribute. You want to set that to a number that represents the percent. Just use the extend Percentable::Percentize method, and then use the percentize method to make sure you are returned percent objects always. Example below:
