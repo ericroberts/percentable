@@ -102,6 +102,30 @@ percentize_object = PercentizedClass.new
 percentize_object.returns_a_percent     #=> Percent.new(10)
 ```
 
+You can do percentize multiple methods at a time:
+
+``` ruby
+class PercentizedClass < OriginalClass
+  extend Percentable::Percentize
+
+  percentize :method1, :method2
+end
+```
+
+You can define defaults for when the percentized method returns nil:
+
+``` ruby
+class PercentizedClass < OriginalClass
+  extend Percentable::Percentize
+
+  percentize :method1, :method2, default: 20
+end
+
+# assuming method1 on OriginalClass returns nil
+percentize_object = PercentizedClass.new
+percentize_object.method1     #=> Percent.new(20)
+```
+
 ### OK, but why would I want this?
 
 I don't know, all I can tell you is that I found it useful. Instead of writing methods to translate from 0.1 to 10% all over the place, I now have a class to represent everything to do with percents.
