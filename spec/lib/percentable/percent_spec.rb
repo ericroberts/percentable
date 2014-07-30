@@ -69,6 +69,25 @@ describe Percentable::Percent do
     end
   end
 
+  describe '#coerce' do
+    context 'when other is numeric' do
+      let(:other) { 10.0 }
+      let(:value) { 10.0 }
+
+      it 'should return a tuple with the float value and type of other' do
+        expect(subject.coerce(other)).to eq [0.1, 10]
+      end
+    end
+
+    context 'when other is non numeric' do
+      let(:other) { 'string' }
+
+      it 'should raise a TypeError' do
+        expect { subject.coerce(other) }.to raise_error TypeError
+      end
+    end
+  end
+
   shared_examples 'it is equal' do |equal_method|
     it 'should consider itself equal to other percents with the same value' do
       percent1 = subject.class.new(50)
