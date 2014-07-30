@@ -24,7 +24,7 @@ Well, you can use this a couple of ways.
 
 ``` ruby
 percent = Percent.new(50)
-percent.value   #=> 50
+percent.value   #=> 50.0
 percent.to_s    #=> '50%'
 percent.to_f    #=> 0.5
 percent == 50   #=> false
