@@ -1,6 +1,6 @@
 # Percentable
 
-TODO: Write a gem description
+Small gem to make working with percents easier.
 
 ## Installation
 
