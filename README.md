@@ -120,6 +120,8 @@ percentize_object = PercentizedClass.new
 percentize_object.returns_a_percent     #=> Percent.new(10)
 ```
 
+### What else can percentize do?
+
 You can do percentize multiple methods at a time:
 
 ``` ruby
