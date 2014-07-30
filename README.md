@@ -27,6 +27,8 @@ percent = Percent.new(50)
 percent.value   #=> 50
 percent.to_s    #=> '50%'
 percent.to_f    #=> 0.5
+percent == 50   #=> false
+percent == 0.5  #=> true
 
 class User < ActiveRecord::Base
   extend Percentable::Percentize
