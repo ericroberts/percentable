@@ -92,7 +92,7 @@ class OriginalClass
   end
 end
 
-class PercentizedClass
+class PercentizedClass < OriginalClass
   extend Percentable::Percentize
 
   percentize :returns_a_percent
