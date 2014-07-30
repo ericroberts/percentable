@@ -108,7 +108,7 @@ I don't know, all I can tell you is that I found it useful. Instead of writing m
 
 ### Is that it?
 
-Hey, I only wrote this in a night. Happy to except contributions from others!
+Hey, I only wrote this in a night. Happy to accept contributions from others!
 
 ## Contributing
 
