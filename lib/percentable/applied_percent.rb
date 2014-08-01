@@ -1,10 +1,10 @@
 class AppliedPercent < Struct.new(:percent)
   def + other
-    other + other * percent.to_f
+    other + self * other
   end
 
   def - other
-    other - other * percent.to_f
+    other - self * other
   end
 
   def * other
