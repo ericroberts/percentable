@@ -20,24 +20,6 @@ module Percentable
       value.to_i
     end
 
-    def coerce other
-      method = caller[0].match("`(.+)'")[1].to_sym
-
-      case other
-      when Numeric
-        case method
-        when :+
-          [to_f * other, other]
-        when :-
-          [other, to_f * other]
-        else
-          [other, to_f]
-        end
-      else
-        fail TypeError, "#{self.class} can't be coerced into #{other.class}"
-      end
-    end
-
     def == other
       (other.class == self.class && other.value == self.value) || other == self.to_f
     end
@@ -76,6 +58,15 @@ module Percentable
         Percent.new(numeric*100)
       else
         fail TypeError, 'must inherit from Numeric'
+      end
+    end
+
+    def coerce other
+      case other
+      when Numeric
+        [AppliedPercent.new(self), other]
+      else
+        fail TypeError, "#{self.class} can't be coerced into #{other.class}"
       end
     end
   end
