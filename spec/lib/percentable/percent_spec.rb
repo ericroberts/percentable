@@ -14,6 +14,15 @@ describe Percentable::Percent do
         expect(subject.value).to eq 50
       end
     end
+
+    context 'with percent value' do
+      let(:value) { percent }
+      let(:percent) { Percentable::Percent.new(50) }
+
+      it 'should return an equivalent percent' do
+        expect(subject).to eq percent
+      end
+    end
   end
 
   describe '#to_s' do
@@ -274,6 +283,14 @@ describe Percentable::Percent do
           expect(percent > integer).to be true
         end
       end
+    end
+  end
+
+  describe '#to_percent' do
+    let(:value) { 50 }
+
+    it 'should return self' do
+      expect(subject.to_percent).to eq subject
     end
   end
 

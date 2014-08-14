@@ -1,7 +1,11 @@
 module Percentable
   class Percent < ::Numeric
     def initialize(value)
-      @value = value.to_f
+      if value.is_a? Percent
+        @value = value.value
+      else
+        @value = value.to_f
+      end
     end
 
     def value
@@ -50,6 +54,10 @@ module Percentable
           self.class.new(value.public_send(operator, other))
         end
       end
+    end
+
+    def to_percent
+      self
     end
 
     def self.from_numeric(numeric)
