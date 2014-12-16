@@ -222,6 +222,27 @@ describe Percentable::Percent do
         expect(percent * numeric).to eq subject.class.new(40)
       end
     end
+
+    context 'multiplying anything else' do
+      let(:other_thing) { double }
+      let(:percent) { subject.class.new(20) }
+
+      context 'responds to to_f' do
+        before { allow(other_thing).to receive(:to_f).and_return 1.0 }
+
+        it "should return the float value times the percent" do
+          expect(percent * other_thing).to eq subject.class.new(20)
+        end
+      end
+
+      context 'does not respond to to_f' do
+        before { allow(other_thing).to receive(:to_f).and_raise(NoMethodError) }
+
+        it "should raise a no method error" do
+          expect { percent * other_thing }.to raise_error(NoMethodError)
+        end
+      end
+    end
   end
 
   describe '#/' do

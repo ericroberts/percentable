@@ -40,8 +40,8 @@ module Percentable
       case other
       when Percent
         self.class.new(to_f * other.value)
-      when Numeric
-        self.class.new(value * other)
+      else
+        self.class.new(value * other.to_f)
       end
     end
 
