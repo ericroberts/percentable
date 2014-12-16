@@ -1,5 +1,5 @@
 require_relative 'percentable/version'
 require_relative 'percentable/numeric'
-require_relative 'percentable/applied_percent'
+require_relative 'percentable/coerced_percent'
 require_relative 'percentable/percent'
 require_relative 'percentable/percentize'
