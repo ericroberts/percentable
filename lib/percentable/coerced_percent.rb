@@ -1,4 +1,4 @@
-class AppliedPercent < Struct.new(:percent)
+class CoercedPercent < Struct.new(:percent)
   def + other
     other + self * other
   end
