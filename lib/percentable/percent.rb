@@ -74,12 +74,7 @@ module Percentable
     end
 
     def coerce other
-      case other
-      when Numeric
-        [CoercedPercent.new(self), other]
-      else
-        fail TypeError, "#{self.class} can't be coerced into #{other.class}"
-      end
+      [CoercedPercent.new(self), other]
     end
   end
 end
