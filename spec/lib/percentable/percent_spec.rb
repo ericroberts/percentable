@@ -216,17 +216,6 @@ describe Percentable::Percent do
       end
     end
 
-    context 'multiplying something that responds to to_f' do
-      let(:other_thing) { double }
-      let(:percent) { subject.class.new(20) }
-
-      before { allow(other_thing).to receive(:to_f).and_return 1.0 }
-
-      it "should return the float value times the percent" do
-        expect(percent * other_thing).to eq subject.class.new(20)
-      end
-    end
-
     context 'multiplying something that responds to coerce' do
       let(:other_thing) { double }
       let(:value) { 20 }
