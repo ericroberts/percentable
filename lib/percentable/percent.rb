@@ -50,8 +50,8 @@ module Percentable
         case other
         when Percent
           self.class.new(value.public_send(operator, other.value))
-        when Numeric
-          self.class.new(value.public_send(operator, other))
+        else
+          self.class.new(value.public_send(operator, other.to_f))
         end
       end
     end
