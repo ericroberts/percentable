@@ -223,24 +223,32 @@ describe Percentable::Percent do
       end
     end
 
-    context 'multiplying anything else' do
+    context 'multiplying something that responds to to_f' do
       let(:other_thing) { double }
       let(:percent) { subject.class.new(20) }
 
-      context 'responds to to_f' do
-        before { allow(other_thing).to receive(:to_f).and_return 1.0 }
+      before { allow(other_thing).to receive(:to_f).and_return 1.0 }
 
-        it "should return the float value times the percent" do
-          expect(percent * other_thing).to eq subject.class.new(20)
-        end
+      it "should return the float value times the percent" do
+        expect(percent * other_thing).to eq subject.class.new(20)
+      end
+    end
+
+    context 'multiplying something that responds to coerce' do
+      let(:other_thing) { double }
+      let(:value) { 20 }
+
+      before { allow(other_thing).to receive(:respond_to?).with(:to_f).and_return(false) }
+      before { allow(other_thing).to receive(:respond_to?).with(:coerce).and_return(true) }
+
+      it 'should call coerce on the other object' do
+        expect(other_thing).to receive(:coerce).with(subject).and_return([0, 1])
+        subject * other_thing
       end
 
-      context 'does not respond to to_f' do
-        before { allow(other_thing).to receive(:to_f).and_raise(NoMethodError) }
-
-        it "should raise a no method error" do
-          expect { percent * other_thing }.to raise_error(NoMethodError)
-        end
+      it 'should multiply the things that are returned from coerce' do
+        expect(other_thing).to receive(:coerce).with(subject).and_return([0, 1])
+        expect(subject * other_thing).to eq 0 * 1
       end
     end
   end

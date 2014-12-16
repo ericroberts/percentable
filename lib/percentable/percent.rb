@@ -37,11 +37,15 @@ module Percentable
     end
 
     def * other
-      case other
-      when Percent
+      if other.is_a? Percent
         self.class.new(to_f * other.value)
-      else
+      elsif other.respond_to? :to_f
         self.class.new(value * other.to_f)
+      elsif other.respond_to? :coerce
+        a, b = other.coerce(self)
+        a * b
+      else
+        raise TypeError, "#{other.class} can't be coerced into Percent"
       end
     end
 
