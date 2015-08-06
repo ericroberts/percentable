@@ -16,6 +16,10 @@ module Percentable
       '%g%%' % value
     end
 
+    def format formatter = '%g%%'
+      formatter % value
+    end
+
     def to_f
       value/100
     end

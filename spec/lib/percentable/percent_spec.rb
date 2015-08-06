@@ -44,6 +44,25 @@ describe Percentable::Percent do
     end
   end
 
+  describe '#format' do
+    context 'formatting of %.0f%' do
+      let(:value) { 44.4444 }
+      let(:format) { '%0.f%' }
+
+      it 'should return 44%' do
+        expect(subject.format(format)).to eq '44%'
+      end
+    end
+
+    context 'default formatting' do
+      let(:value) { 44.4444 }
+
+      it 'should return 44.4444%' do
+        expect(subject.format).to eq '44.4444%'
+      end
+    end
+  end
+
   describe '#to_f' do
     context 'with value of 50' do
       let(:value) { 50 }
